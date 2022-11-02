@@ -1,0 +1,25 @@
+﻿@page "/"
+@inject CustomAuthenticationStateProvider CustomAuthenticationStateProvider
+
+<AuthorizeView Roles="default">
+    <Authorized>
+        <p>您具有该权限</p>
+    </Authorized>
+    <NotAuthorized>
+        <p>您不具备该权限</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+<button class="btn btn-primary" @onclick='()=>{
+    CustomAuthenticationStateProvider.Login();
+
+}'>
+    模拟登录
+</button>
+
+<button class="btn btn-primary" @onclick='()=>{
+    CustomAuthenticationStateProvider.LogOut();
+}'>
+    模拟登出
+</button>
